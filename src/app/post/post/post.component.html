@@ -1,0 +1,21 @@
+<h1 class="programs-title">Posts</h1>
+<section class="programs" *ngIf="posts">
+  <article *ngFor="let post of posts" class="program design-basics">
+    <div class="wrapper" [routerLink]="['/posts', post._id]">
+      <h3 class="program-title">{{ post.name }}</h3>
+      <h3 class="program-title">{{ post.description }}</h3>
+      <h3 class="program-title">{{ post.createdAt }}</h3>
+      <h3 class="program-title">{{ post.imageUrl }}</h3>
+      <h3 class="program-title">{{ post.author }}</h3>
+      <h3 class="program-title">{{ post.data }}</h3>
+      <h3 class="program-title">{{ post.groupMembers.length }}</h3>
+    </div>
+    <!-- <p class="program-subtitle">Подготвителен курс</p>
+    <button class="program-cta">КАНДИДАТСТВАЙ</button>
+    <footer class="program-footer">
+      <h3 class="program-footer-title">Безплатно</h3>
+      <p class="program-footer-text">* 50 лв. такса за приемен изпит</p>
+    </footer> -->
+  </article>
+</section>
+<div *ngIf="!posts"><p class="loading">Loading...</p></div>

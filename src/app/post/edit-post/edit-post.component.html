@@ -1,0 +1,93 @@
+<div class="container">
+  <div class="new-theme-border">
+    <div class="header-background">
+      <h1>New Theme</h1>
+    </div>
+    <form
+      [formGroup]="form"
+      class="formata"
+      action=""
+      method="post"
+      (ngSubmit)="editPost()"
+    >
+      <!-- <div class="new-theme-title"> -->
+      <div>
+        Previous Name: {{ post?.name }}
+        <p>
+          New Name:
+          <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="{{post?.name}}"
+            formControlName="name"
+          />
+        </p>
+      </div>
+      <ng-container *ngIf="form.get('name')?.touched">
+        <p *ngIf="form.get('name')?.errors?.['required']" class="error">
+          Post name is required.
+        </p>
+        <p *ngIf="form.get('name')?.errors?.['minlength']" class="error">
+          Post name must be at least 4 characters long.
+        </p>
+      </ng-container>
+
+      <p>
+        <input
+          type="text"
+          name="description"
+          id="description"
+          placeholder="description"
+          formControlName="description"
+        />
+      </p>
+      <ng-container *ngIf="form.get('description')?.touched">
+        <p *ngIf="form.get('description')?.errors?.['required']" class="error">
+          Post description is required.
+        </p>
+        <p *ngIf="form.get('description')?.errors?.['minlength']" class="error">
+          Post description must be at least 4 characters long.
+        </p>
+      </ng-container>
+
+      <p>
+        <input
+          type="text"
+          name="imageUrl"
+          id="imageUrl"
+          placeholder="imageUrl"
+          formControlName="imageUrl"
+        />
+      </p>
+      <ng-container *ngIf="form.get('imageUrl')?.touched">
+        <p *ngIf="form.get('imageUrl')?.errors?.['required']" class="error">
+          Post description is required.
+        </p>
+        <!-- <p *ngIf="form.get('imageUrl')?.errors?.['minlength']" class="error">
+          Post description must be at least 4 characters long.
+        </p> -->
+      </ng-container>
+
+      <!-- </div> -->
+      <!-- <div class="new-theme-content"> -->
+      <!-- <textarea
+        type="text"
+        name="description"
+        id="description"
+        rows="8"
+        class="height"
+        ngModel
+        required
+        minlength="10"
+      ></textarea>
+      <p class="error">The field with your post is required.</p>
+      <p class="error">Post must be at least 10 characters long.</p> -->
+      <!-- </div> -->
+      <div class="new-theme-buttons">
+        <button>Post</button>
+      </div>
+    </form>
+    <button class="cancel" (click)="goBack()">Cancel</button>
+  </div>
+</div>

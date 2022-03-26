@@ -1,0 +1,19 @@
+<section class="home-container">
+  <article class="home-content">
+    <h3 class="home-title">Welcome</h3>
+    <p class="home-text">
+      Write lil CSS. Something about that you enter in the site. Something
+      funny! :D
+    </p>
+    <article *ngIf="!isLogged" class="home-log">
+      <ul class="home-log-content">
+        <li class="home-log-options">
+          <a routerLink="/login" class="home-log-btn">Login</a>
+        </li>
+        <li class="home-log-options">
+          <a routerLink="/register" class="home-log-btn">Register</a>
+        </li>
+      </ul>
+    </article>
+  </article>
+</section>

@@ -1,0 +1,100 @@
+<div class="centered-content">
+  <form
+    [formGroup]="form"
+    class="register"
+    action=""
+    method="post"
+    (ngSubmit)="register()"
+  >
+    <h1 class="login-title">Register</h1>
+
+    <p class="login-field-par">
+      <input
+        class="login-field-par-input"
+        type="text"
+        name="fulName"
+        id="fullName"
+        placeholder="Full Name"
+        formControlName="fullName"
+      />
+    </p>
+
+    <ng-container *ngIf="form.get('fullName')?.touched">
+      <p *ngIf="form.get('fullName')?.errors?.['required']" class="errors">
+        Full or User name is required!
+      </p>
+      <p *ngIf="form.get('fullName')?.errors?.['minlength']" class="errors">
+        Full or User Should be 4 chars!
+      </p>
+    </ng-container>
+
+    <p class="login-field-par">
+      <input
+        class="login-field-par-input"
+        type="email"
+        name="email"
+        id="email"
+        placeholder="Email"
+        formControlName="email"
+      />
+    </p>
+
+    <ng-container *ngIf="form.get('email')?.touched">
+      <p *ngIf="form.get('email')?.errors?.['required']" class="errors">
+        Email is required!
+      </p>
+      <p *ngIf="form.get('email')?.errors?.['invalidEmail']" class="errors">
+        Email is not valid!
+      </p>
+    </ng-container>
+
+    <p class="login-field-par">
+      <input
+        class="login-field-par-input"
+        type="password"
+        name="password"
+        id="password"
+        placeholder="******"
+        formControlName="password"
+      />
+    </p>
+
+    <ng-container *ngIf="form.get('password')?.touched">
+      <p *ngIf="form.get('password')?.errors?.['required']" class="errors">
+        Password is required!
+      </p>
+      <p *ngIf="form.get('password')?.errors?.['minlength']" class="errors">
+        Password must be minlength not valid!
+      </p>
+    </ng-container>
+
+    <p class="login-field-par">
+      <input
+        class="login-field-par-input"
+        type="password"
+        name="rePassword"
+        id="rePassword"
+        placeholder="RePassword"
+        formControlName="rePassword"
+      />
+    </p>
+
+    <ng-container *ngIf="form.get('rePassword')?.touched">
+      <p *ngIf="form.get('rePassword')?.errors?.['required']" class="errors">
+        Repeat Password is required!
+      </p>
+      <p *ngIf="form.get('rePassword')?.errors?.['sameValue']" class="errors">
+        Repeat Password must Equal Pass not valid!
+      </p>
+    </ng-container>
+
+
+    <button class="button">Register</button>
+
+    <br />
+
+    <p class="has-text-grey">
+      Already got an account? <a routerLink="/login">Login</a> now!
+    </p>
+  </form>
+</div>

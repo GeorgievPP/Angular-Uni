@@ -1,0 +1,55 @@
+<div class="container">
+  <!-- theme content  -->
+  <div *ngIf="post" class="theme-content">
+    <!-- theme-title  -->
+    <div class="theme-title">
+      <div class="theme-name-wrapper">
+        <div class="theme-name">
+          <h2>{{ post?.name }}</h2>
+          <p>Date: {{ post.name }} <time></time></p>
+          <p>
+            Date2: <time>{{ post.createdAt }}</time>
+          </p>
+          <p>Date3: {{ post.author }}</p>
+          <p>Date4: {{ post.description }}</p>
+          <p>Date5: {{ post.data }}</p>
+          <p>Date6: {{ post.groupMembers.length }}</p>
+          <p>Date7: {{ post.groupMembers }}</p>
+        </div>
+      </div>
+    </div>
+    <button>
+      <p class="edit-btn" [routerLink]="['/posts', post._id, 'edit']">
+        Edit Post
+      </p>
+    </button>
+    <button (click)="onDeletePost(post._id)">Delete</button>
+    <button (click)="likePost(post._id, getEmail)">Like</button>
+    <button (click)="unlikePost(post._id, getEmail)">Unlike</button>
+    <h2>Comments: </h2>
+    <form [formGroup]="form" action="" method="post" (ngSubmit)="addComment()">
+      <p>
+        <input
+          type="text"
+          name="comment"
+          id="comment"
+          placeholder="Comment"
+          formControlName="comment"
+        />
+      </p>
+      <ng-container *ngIf="form.get('comment')?.touched">
+        <p *ngIf="form.get('comment')?.errors?.['required']" class="error">
+          Comment cannot be empty.
+        </p>
+      </ng-container>
+      <button>ADD Comment</button>
+    </form>
+   <div *ngIf="getComments">
+    <div *ngFor="let comment of post.comment" class="comments">
+      <div class="comments-text">
+        <p>{{comment}}</p>
+      </div>
+    </div>
+   </div>
+  </div>
+</div>

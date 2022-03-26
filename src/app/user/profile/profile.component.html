@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="profile">
+    <img src="/assets/profile.png" alt="default user image" />
+    <h3>User Info:</h3>
+    <div class="flex">
+      <p>Username:</p>
+      <p>{{ fullName }}</p>
+    </div>
+    <div class="flex">
+      <p>Email:</p>
+      <p>{{ getEmail }}</p>
+    </div>
+    <div class="flex">
+      <p>Id:</p>
+      <p>{{ getId }}</p>
+    </div>
+    <div class="flex">
+      <p>OwnProjects:</p>
+      <p>{{ GetOwnProjects }}</p>
+    </div>
+    <div class="flex">
+      <p>OwnProjectsCount:</p>
+      <p>{{ GetOwnProjects.length }}</p>
+    </div>
+    <div class="flex">
+      <p>OtherProjects:</p>
+      <p>{{ GetOtherProjects }}</p>
+    </div>
+    <div class="flex">
+      <p>OtherProjectsCount:</p>
+      <p>{{ GetOtherProjects.length }}</p>
+    </div>
+
+    <button class="green-button">Edit</button>
+  </div>
+</div>
