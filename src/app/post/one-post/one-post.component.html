@@ -31,23 +31,27 @@
       <p>
         <input
           type="text"
-          name="comment"
-          id="comment"
-          placeholder="Comment"
-          formControlName="comment"
+          name="description"
+          id="description"
+          placeholder="description"
+          placeholder="description"
+          formControlName="description"
         />
       </p>
-      <ng-container *ngIf="form.get('comment')?.touched">
-        <p *ngIf="form.get('comment')?.errors?.['required']" class="error">
+      <ng-container *ngIf="form.get('description')?.touched">
+        <p *ngIf="form.get('description')?.errors?.['required']" class="error">
           Comment cannot be empty.
         </p>
       </ng-container>
       <button>ADD Comment</button>
-    </form>
-   <div *ngIf="getComments">
-    <div *ngFor="let comment of post.comment" class="comments">
+    </form> -->
+    <div *ngIf="getComments">
+    <div *ngFor="let comment of comments" class="comments">
       <div class="comments-text">
-        <p>{{comment}}</p>
+        <p>{{comment.description}}</p>
+        <p>{{comment.author}}</p>
+        <p>{{comment.post}}</p>
+        <p>{{comment.createdAt}}</p>
       </div>
     </div>
    </div>

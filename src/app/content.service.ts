@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { IPost } from './shared/interfaces/post';
 
 import { environment } from 'src/environments/environment';
+import { IComment } from './shared/interfaces/comment';
 const API_URL = environment.apiUrl;
 
 @Injectable()
@@ -39,7 +40,13 @@ export class ContentService {
     return this.http.post<IPost>(`${API_URL}/v1/projects/delete`, data);
   }
 
-  addComment(data: {comment: string, postId: string | undefined}) {
-    return this.http.post<IPost>(`${API_URL}/v1/projects/add-comment`, data);
+  getComments(data: {neshto: string}) {
+    return this.http.post<IComment[]>(`${API_URL}/v1/comments/all`, data);
   }
+
+  addComment(data: {description: string, author: string | undefined, post: string | undefined}) {
+    return this.http.post<IPost>(`${API_URL}/v1/comments/add-comment`, data);
+  }
+
+
 }

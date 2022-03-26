@@ -5,7 +5,7 @@ export interface IPost {
   imageUrl: string,
   createdAt: string,
   public: boolean,
-  comment: string[],
+  // comment: string[],
   author: string,
   data: string[],
   groupMembers: string[]
