@@ -7,6 +7,7 @@ import { PostRoutingModule } from './post-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditPostComponent } from './edit-post/edit-post.component';
+import { ProfilePostsComponent } from './profile-posts/profile-posts.component';
 
 
 
@@ -15,7 +16,8 @@ import { EditPostComponent } from './edit-post/edit-post.component';
     PostComponent,
     NewPostComponent,
     OnePostComponent,
-    EditPostComponent
+    EditPostComponent,
+    ProfilePostsComponent
   ],
   imports: [
     CommonModule,

@@ -7,15 +7,15 @@
      <ul *ngIf="!isLogged" class="nav-list">
       <li class="nav-list-item"><a routerLink="/login">Login</a></li>
       <li class="nav-list-item"><a routerLink="/register">Register</a></li>
-     </ul>
-     <ul *ngIf="isLogged" class="nav-list">
+    </ul>
+    <ul *ngIf="isLogged" class="nav-list">
       <li class="nav-list-item"><a routerLink="/profile">{{fullName}}'s profile</a></li>
-      <li class="nav-list-item"><a (click)="logout()">LogoutII</a></li>
-      <li class="nav-list-item"><a routerLink="/profile">Profile</a></li>
+      <!-- <li class="nav-list-item"><a (click)="logout()">LogoutII</a></li> -->
       <li class="nav-list-item"><a href="#">Logout</a></li>
       <li class="nav-list-item"><a routerLink="/home">Home</a></li>
       <li class="nav-list-item"><a routerLink="/posts">Posts</a></li>
-      <li class="nav-list-item"><a routerLink="/add-post">New Posts</a></li>
+      <li class="nav-list-item"><a routerLink="/add-post">New Post</a></li>
+      <li class="nav-list-item"><a routerLink="/profile-posts">My Posts</a></li>
      </ul>
     </ul>
   </nav>

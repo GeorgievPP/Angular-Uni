@@ -18,6 +18,10 @@ export class ContentService {
     return this.http.get<IPost[]>(`${API_URL}/v1/projects/all`);
   }
 
+  loadProfilePosts(data: {userId: string | undefined}) {
+    return this.http.post<IPost[]>(`${API_URL}/v1/projects/profile-posts`, data);
+  }
+
   savePost(data: any) {
     return this.http.post<IPost>(`${API_URL}/v1/projects/create`, data);
   }
@@ -47,6 +51,7 @@ export class ContentService {
   addComment(data: {description: string, author: string | undefined, post: string | undefined}) {
     return this.http.post<IPost>(`${API_URL}/v1/comments/add-comment`, data);
   }
+
 
 
 }
