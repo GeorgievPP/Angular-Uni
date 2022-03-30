@@ -1,15 +1,25 @@
+<div *ngIf="!posts"><p class="loading">Loading...</p></div>
 <h1 class="programs-title">Posts</h1>
 <section class="programs" *ngIf="posts">
   <article *ngFor="let post of posts" class="program design-basics">
     <div class="wrapper" [routerLink]="['/posts', post._id]">
-      <h3 class="program-title">{{ post.name }}</h3>
-      <h3 class="program-title">{{ post.description }}</h3>
-      <h3 class="program-title">{{ post.createdAt }}</h3>
-      <h3 class="program-title">{{ post.imageUrl }}</h3>
-      <h3 class="program-title">{{ post.author }}</h3>
-      <h3 class="program-title">{{ post.data }}</h3>
-      <h3 class="program-title">{{ post.groupMembers.length }}</h3>
+      <p>Creator Name:</p>
+      <p class="program-title">{{ post.creatorName }}</p>
+      <p>Name:</p>
+      <p class="program-title">{{ post.name }}</p>
+      <p>description:</p>
+      <p class="program-title">{{ post.description }}</p>
+      <p>Created At:</p>
+      <p class="program-title">{{ post.createdAt }}</p>
+      <p>ImageUrl:</p>
+      <img [src]="post.imageUrl" alt="NISHTO" width="300px">
+      <p>Author ID:</p>
+      <p class="program-title">{{ post.author }}</p>
+      <!-- <p class="program-title">{{ post.data }}</p> -->
+      <p>GroupMembers:</p>
+      <p class="program-title">{{ post.groupMembers }}</p>
+      <p>Likes:</p>
+      <p class="program-title">{{ post.groupMembers.length }}</p>
     </div>
   </article>
 </section>
-<div *ngIf="!posts"><p class="loading">Loading...</p></div>

@@ -69,22 +69,19 @@
         </p> -->
       </ng-container>
 
-      <!-- </div> -->
-      <!-- <div class="new-theme-content"> -->
-      <!-- <textarea
-        type="text"
-        name="description"
-        id="description"
-        rows="8"
-        class="height"
-        ngModel
-        required
-        minlength="10"
-      ></textarea>
-      <p class="error">The field with your post is required.</p>
-      <p class="error">Post must be at least 10 characters long.</p> -->
-      <!-- </div> -->
+      <p>Checkbox Public:</p>
+      <p>
+        Yes?:
+        <input
+          type="checkbox"
+          name="public"
+          id="public"
+          formControlName="public"
+        />
+      </p>
+
       <div class="new-theme-buttons">
+        <button type="button" (click)="setDefaultValues()">Set Default</button>
         <button>Post</button>
       </div>
     </form>

@@ -13,6 +13,8 @@ import { UserService } from 'src/app/user/user.service';
 })
 export class EditPostComponent {
   post: IPost | undefined;
+  pub!: boolean;
+
 
   // constructor(private contentService: ContentService, private activatedRoute: ActivatedRoute) {
   //   this.fetchPost();
@@ -43,6 +45,8 @@ export class EditPostComponent {
       name: ['', [Validators.required, Validators.minLength(4)]],
       description: ['', [Validators.required, Validators.minLength(4)]],
       imageUrl: ['', [Validators.required]],
+      public: ['']
+
     });
   }
 
@@ -55,13 +59,15 @@ export class EditPostComponent {
     this.proba = this.getId;
     console.log(this.proba);
 
+    this.pub = this.form.value.public ? true : false;
+
     const data = {
       name: this.form.value.name,
       description: this.form.value.description,
       imageUrl: this.form.value.imageUrl,
       user_id: this.proba,
       projectId: this.post?._id,
-      public: true,
+      public: this.pub,
     };
     this.contentService.editPost(data).subscribe({
       next: () => {
@@ -79,6 +85,10 @@ export class EditPostComponent {
     // console.log(this.activatedRoute.snapshot.params) !BETON!;
     this.contentService.loadPost(id).subscribe((post) => (this.post = post));
   }
+
+  setDefaultValues() {
+    this.form.patchValue({name: this.post?.name, description:this.post?.description, imageUrl:this.post?.imageUrl});
+ }
 
   goBack(): void {
     this.router.navigate(['/posts', this.post?._id]);

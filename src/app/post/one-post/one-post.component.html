@@ -18,15 +18,25 @@
         </div>
       </div>
     </div>
-    <button>
-      <p class="edit-btn" [routerLink]="['/posts', post._id, 'edit']">
-        Edit Post
-      </p>
-    </button>
-    <button (click)="onDeletePost(post._id)">Delete</button>
-    <button (click)="likePost(post._id, getEmail)">Like</button>
-    <button (click)="unlikePost(post._id, getEmail)">Unlike</button>
-    <h2>Comments: </h2>
+
+    <div class="buttons">
+      <button type="button" routerLink="/posts" class="cancel">Back To All Posts</button>
+
+      <div *ngIf="credit">
+        <button>
+          <p class="edit-btn" [routerLink]="['/posts', post._id, 'edit']">
+            Edit Post
+          </p>
+        </button>
+        <button (click)="onDeletePost(post._id)">Delete</button>
+      </div>
+      <div *ngIf="!credit">
+        <button (click)="likePost(post._id, getEmail)">Like</button>
+        <button (click)="unlikePost(post._id, getEmail)">Unlike</button>
+      </div>
+    </div>
+
+    <h2>Comments:</h2>
     <form [formGroup]="form" action="" method="post" (ngSubmit)="addComment()">
       <p>
         <input
@@ -44,16 +54,17 @@
         </p>
       </ng-container>
       <button>ADD Comment</button>
-    </form> -->
+    </form>
+    -->
     <div *ngIf="getComments">
-    <div *ngFor="let comment of comments" class="comments">
-      <div class="comments-text">
-        <p>{{comment.description}}</p>
-        <p>{{comment.author}}</p>
-        <p>{{comment.post}}</p>
-        <p>{{comment.createdAt}}</p>
+      <div *ngFor="let comment of comments" class="comments">
+        <div class="comments-text">
+          <p>{{ comment.description }}</p>
+          <p>{{ comment.author }}</p>
+          <p>{{ comment.post }}</p>
+          <p>{{ comment.createdAt }}</p>
+        </div>
       </div>
     </div>
-   </div>
   </div>
 </div>

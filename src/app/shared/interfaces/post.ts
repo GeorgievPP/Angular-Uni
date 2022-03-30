@@ -7,6 +7,7 @@ export interface IPost {
   public: boolean,
   // comment: string[],
   author: string,
+  creatorName: string,
   data: string[],
   groupMembers: string[]
 }

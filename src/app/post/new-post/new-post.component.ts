@@ -14,6 +14,7 @@ export class NewPostComponent implements OnDestroy{
 
   killSubscription = new Subject();
   proba!: string | Object;
+  pub!: boolean;
 
   get fullName(): string {
     return this.userService.user?.fullName || '';
@@ -32,7 +33,8 @@ export class NewPostComponent implements OnDestroy{
       this.form = fb.group({
         name: ['', [Validators.required, Validators.minLength(4)]],
         description: ['', [Validators.required, Validators.minLength(4)]],
-        imageUrl: ['', [Validators.required]]
+        imageUrl: ['', [Validators.required]],
+        public: ['']
       })
      }
 
@@ -46,12 +48,15 @@ export class NewPostComponent implements OnDestroy{
     this.proba = this.getId;
     console.log(this.proba);
 
+    this.pub = this.form.value.public ? true : false;
+
     const data = {
       name: this.form.value.name,
       description: this.form.value.description,
       imageUrl: this.form.value.imageUrl,
+      public: this.pub,
       user_id: this.proba,
-
+      creatorName: this.fullName,
     }
     this.contentService.savePost(data).subscribe({
       next: () => {

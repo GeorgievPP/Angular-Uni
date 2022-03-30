@@ -23,10 +23,20 @@ const routes: Routes = [
             path: '',
             pathMatch: 'full',
             component: OnePostComponent,
+            canActivate: [AuthActivate],
+            data: {
+              authenticationRequired: true,
+              authenticationFailureRedirectUrl: '/login',
+            },
           },
           {
             path: 'edit',
             component: EditPostComponent,
+            canActivate: [AuthActivate],
+            data: {
+              authenticationRequired: true,
+              authenticationFailureRedirectUrl: '/login',
+            },
           }
         ]
       },

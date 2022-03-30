@@ -23,6 +23,14 @@ export class OnePostComponent {
     return this.userService.user?.email || '';
   }
 
+  get fullName(): string {
+    return this.userService.user?.fullName || '';
+  }
+
+  get credit(): boolean {
+    return this.fullName == this.post?.creatorName
+  }
+
   // get getComments(): boolean {
   //   return this.post!.comment.length > 0
   // }

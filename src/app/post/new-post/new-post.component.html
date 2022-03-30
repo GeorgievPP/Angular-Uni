@@ -60,26 +60,25 @@
         <p *ngIf="form.get('imageUrl')?.errors?.['required']" class="error">
           Post description is required.
         </p>
-        <!-- <p *ngIf="form.get('imageUrl')?.errors?.['minlength']" class="error">
-          Post description must be at least 4 characters long.
-        </p> -->
       </ng-container>
 
-      <!-- </div> -->
-      <!-- <div class="new-theme-content"> -->
-      <!-- <textarea
-        type="text"
-        name="description"
-        id="description"
-        rows="8"
-        class="height"
-        ngModel
-        required
-        minlength="10"
-      ></textarea>
-      <p class="error">The field with your post is required.</p>
-      <p class="error">Post must be at least 10 characters long.</p> -->
-      <!-- </div> -->
+      <!-- <p>Radio Btn: </p>
+      <p>
+        <input type="radio" value="male" formControlName="gender"> Public
+        <input type="radio" value="female" formControlName="gender"> Non Public
+     </p> -->
+
+      <p>Checkbox Public:</p>
+      <p>
+        Yes?:
+        <input
+          type="checkbox"
+          name="public"
+          id="public"
+          formControlName="public"
+        />
+      </p>
+
       <div class="new-theme-buttons">
         <button type="button" routerLink="/posts" class="cancel">Cancel</button>
         <button>Post</button>
@@ -87,8 +86,8 @@
     </form>
 
     <div>
-      <p>{{fullName}}</p>
-      <p>{{getId}}</p>
+      <p>{{ fullName }}</p>
+      <p>{{ getId }}</p>
     </div>
   </div>
 </div>
