@@ -1,36 +1,60 @@
-<div class="container">
-  <div class="profile">
-    <img src="/assets/profile.png" alt="default user image" />
-    <h3>User Info:</h3>
-    <div class="flex">
-      <p>Username:</p>
-      <p>{{ fullName }}</p>
-    </div>
-    <div class="flex">
-      <p>Email:</p>
-      <p>{{ getEmail }}</p>
-    </div>
-    <div class="flex">
-      <p>Id:</p>
-      <p>{{ getId }}</p>
-    </div>
-    <div class="flex">
-      <p>OwnProjects:</p>
-      <p>{{ GetOwnProjects }}</p>
-    </div>
-    <div class="flex">
-      <p>OwnProjectsCount:</p>
-      <p>{{ GetOwnProjects.length }}</p>
-    </div>
-    <div class="flex">
-      <p>OtherProjects:</p>
-      <p>{{ GetOtherProjects }}</p>
-    </div>
-    <div class="flex">
-      <p>OtherProjectsCount:</p>
-      <p>{{ GetOtherProjects.length }}</p>
-    </div>
+<div class="likeBody">
+  <div class="container">
+    <div class="profile">
+      <img src="/assets/profile.png" alt="default user image" />
+      <h3>User Info:</h3>
+      <div class="flex">
+        <p>Username:</p>
+        <p>{{ fullName }}</p>
+      </div>
+      <div class="flex">
+        <p>Email:</p>
+        <p>{{ getEmail }}</p>
+      </div>
+      <div class="flex">
+        <p>Id:</p>
+        <p>{{ getId }}</p>
+      </div>
+      <!-- <div class="flex">
+        <p>My Posts:</p>
+        <p>{{ GetOwnProjects }}</p>
+      </div> -->
+      <div class="flex">
+        <p>My Posts Count:</p>
+        <p>{{ GetOwnProjects.length }}</p>
+      </div>
+      <!-- <div class="flex">
+        <p>OtherProjects:</p>
+        <p>{{ getLikedPosts }}</p>
+      </div> -->
+      <div class="flex">
+        <p>My Likes Count:</p>
+        <p>{{ getLikedPosts.length }}</p>
+      </div>
 
-    <button class="green-button">Edit</button>
+      <!-- <button class="green-button">Edit</button> -->
+    </div>
+    <div>
+      <p>My Likes Collection:</p>
+      <div class="programs" *ngIf="getLikedPosts.length > 0">
+        <div class="program design-basics" *ngFor="let post of getLikedPosts">
+          <div class="wrapper" [routerLink]="['/posts', post._id]">
+            <p>Creator Name:</p>
+            <p class="program-title">{{ post.creatorName }}</p>
+            <p>Post Name:</p>
+            <p class="program-title">{{ post.name }}</p>
+            <p>description:</p>
+            <p class="program-title">{{ post.description }}</p>
+            <p>Created At:</p>
+            <p class="program-title">{{ post.createdAt }}</p>
+            <p>ImageUrl:</p>
+            <img [src]="post.imageUrl" alt="NISHTO" width="300px" />
+            <!-- <p>Likes:</p>
+        <p class="program-title">{{ post.groupMembers.length }}</p> -->
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+
 </div>

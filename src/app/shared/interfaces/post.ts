@@ -1,3 +1,5 @@
+import { IUser } from "./user";
+
 export interface IPost {
   _id: string,
   name: string,
@@ -6,8 +8,8 @@ export interface IPost {
   createdAt: string,
   public: boolean,
   // comment: string[],
-  author: string,
+  author: IUser,
   creatorName: string,
   data: string[],
-  groupMembers: string[]
+  groupMembers: IUser[]
 }

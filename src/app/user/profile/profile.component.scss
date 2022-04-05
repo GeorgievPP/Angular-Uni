@@ -69,3 +69,69 @@
 .green-button {
   background-color: green;
 }
+
+
+// postovete
+
+.programs {
+  background: #54536f;
+  padding: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: relative;
+  max-height: 510px;
+  margin-bottom: 220px;
+}
+
+
+.programs-title {
+  color: black;
+  text-align: center;
+  flex-basis: 100%;
+  font-size: 35px;
+  padding-top: 15px;
+}
+
+.program {
+  background: white;
+  border-radius: 12px;
+  width: 30%;
+  margin: 15px;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 1px 1px 7px -3px black;
+  position: relative;
+  top: 25px;
+  display: flex;
+  flex-direction: column;
+}
+
+.program-title {
+  font-size: 24px;
+  color: #575471;
+  flex-grow: 1;
+}
+
+.program-subtitle {
+  padding: 15px;
+}
+
+.program-cta {
+  background: #a555cc;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 1px 1px 6px -2px black;
+  margin: 46px auto;
+}
+
+.program-footer {
+  color: black;
+  padding: 8px;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}

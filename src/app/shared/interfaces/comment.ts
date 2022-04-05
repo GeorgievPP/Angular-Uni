@@ -3,5 +3,6 @@ export interface IComment {
   description: string,
   createdAt: string,
   author: string,
+  jimHelper: string,
   post: string
 }

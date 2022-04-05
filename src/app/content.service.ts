@@ -48,9 +48,16 @@ export class ContentService {
     return this.http.post<IComment[]>(`${API_URL}/v1/comments/all`, data);
   }
 
-  addComment(data: {description: string, author: string | undefined, post: string | undefined}) {
-    return this.http.post<IPost>(`${API_URL}/v1/comments/add-comment`, data);
+  addComment(data: {description: string, author: string | undefined, jimHelper: string | undefined, post: string | undefined}) {
+    return this.http.post<IComment>(`${API_URL}/v1/comments/add-comment`, data);
   }
+
+  deleteComment(data: { commentId: string}) {
+    return this.http.post<IComment>(`${API_URL}/v1/comments/del-comment`, data);
+  }
+
+
+
 
 
 

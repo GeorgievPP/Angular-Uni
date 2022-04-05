@@ -17,6 +17,8 @@ export class OnePostComponent {
 
   form: FormGroup;
 
+  help?: boolean;
+
   comments: IComment[] = [];
 
   get getEmail(): string {
@@ -27,13 +29,23 @@ export class OnePostComponent {
     return this.userService.user?.fullName || '';
   }
 
-  get credit(): boolean {
-    return this.fullName == this.post?.creatorName
+  get getUserId(): string {
+    return this.userService.user?._id || '';
   }
 
-  // get getComments(): boolean {
-  //   return this.post!.comment.length > 0
-  // }
+
+  get credit(): boolean {
+    return this.fullName == this.post?.creatorName;
+  }
+
+  get leketa(): boolean {
+    for (const like of this.post!.groupMembers) {
+      if (this.getUserId == like._id) {
+        return true;
+      }
+    }
+    return false;
+  }
 
   constructor(
     private contentService: ContentService,
@@ -45,8 +57,8 @@ export class OnePostComponent {
     this.fetchPost();
     this.getComments();
     this.form = fb.group({
-      description: ['', Validators.required]
-    })
+      description: ['', Validators.required],
+    });
   }
 
   fetchPost(): void {
@@ -95,6 +107,9 @@ export class OnePostComponent {
       id: id,
     };
     // console.log(id);
+    if (!confirm('Are you sure you want to delete this!')) {
+      return;
+    }
     this.contentService.deletePost(data).subscribe({
       next: () => {
         this.router.navigate(['/posts']);
@@ -106,27 +121,28 @@ export class OnePostComponent {
     // this.router.navigate(['/posts']);
   }
 
-
   getComments(): void {
     // this.post = undefined;
     const id = this.activatedRoute.snapshot.params['postId'];
     // console.log(this.activatedRoute.snapshot.params) !BETON!;
     const data = {
-      neshto: id
-    }
+      neshto: id,
+    };
 
-    this.contentService.getComments(data).subscribe((comments => this.comments = comments));
+    this.contentService
+      .getComments(data)
+      .subscribe((comments) => (this.comments = comments));
 
     this.contentService.getComments(data).subscribe({
       next: () => {
         this.fetchPost();
+        // this.author;
         this.router.navigate(['/posts', data.neshto]);
       },
       error: (err) => {
         console.log(err);
       },
-
-    })
+    });
   }
 
   addComment(): void {
@@ -137,8 +153,11 @@ export class OnePostComponent {
     const data = {
       description: this.form.value.description,
       author: this.userService.user?.fullName,
-      post: this.post?._id
-    }
+      jimHelper: this.userService.user?._id,
+      post: this.post?._id,
+    };
+
+    this.form.reset();
 
     this.contentService.addComment(data).subscribe({
       next: () => {
@@ -149,7 +168,26 @@ export class OnePostComponent {
       error: (err) => {
         console.log(err);
       },
+    });
+  }
 
-    })
+  onDeleteComment(id: string, postId: string): void {
+    const data = {
+      commentId: id,
+    };
+    // console.log(id);
+    if (!confirm('Are you sure you want to delete this!')) {
+      return;
+    }
+    this.contentService.deleteComment(data).subscribe({
+      next: () => {
+        this.getComments();
+        this.router.navigate(['/posts', postId]);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+    // this.router.navigate(['/posts']);
   }
 }

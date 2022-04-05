@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { tap } from 'rxjs';
+import { catchError, EMPTY, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { IUser } from '../shared/interfaces';
 
@@ -30,15 +30,26 @@ export class UserService {
       .pipe(tap((user) => (this.user = user)));
   }
 
-  getProfileInfo(user_Id: string) {
+  getProfileInfo(data: { userId: string }) {
     return this.http
-      .post<IUser>(`${apiUrl}/v1/auth/profile`, user_Id, { withCredentials: true })
+      .post<IUser>(`${apiUrl}/v1/auth/profile`, data, { withCredentials: true })
+      .pipe(
+        tap((user) => (this.user = user)),
+        catchError((err) => {
+          return EMPTY;
+        })
+      );
+  }
+
+  getUserInfo() {
+    return this.http
+      .get<IUser>(`${apiUrl}/v1/auth/start`, { withCredentials: true })
       .pipe(tap((user) => (this.user = user)));
   }
 
   logout() {
-    return this.http.post<IUser>(`${apiUrl}/v1/auth/logout`, {}, { withCredentials: true }).pipe(
-      tap(() => this.user = null)
-    );
+    return this.http
+      .post<IUser>(`${apiUrl}/v1/auth/logout`, {}, { withCredentials: true })
+      .pipe(tap(() => (this.user = null)));
   }
 }

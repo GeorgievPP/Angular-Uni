@@ -28,9 +28,12 @@ export class LoginComponent {
         const redirectUrl =
           this.activatedRoute.snapshot.queryParams['redirectUrl'] || '/';
         this.router.navigate([redirectUrl]);
+        console.log(this.userService.user?.token)
       },
       error: (err) => {
         console.log(err);
+        console.log('Wrong credentials');
+        alert('Wrong credentials');
       },
     });
   }

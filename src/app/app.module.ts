@@ -11,6 +11,8 @@ import { SharedModule } from './shared/shared.module';
 import { UserModule } from './user/user.module';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HttpClientModule } from '@angular/common/http';
+import { HeaderComponent } from './core/header/header.component';
+import { FooterComponent } from './core/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,6 @@ import { HttpClientModule } from '@angular/common/http';
   providers: [
     ContentService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent, HeaderComponent, FooterComponent]
 })
 export class AppModule { }

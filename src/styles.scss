@@ -1,1 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial;
+  // // background-image: url('assets/tree-pic.jpg');
+  // background: burlywood;
+  // height: 100%;
+  // width: 100%;
+  // background-size: cover;
+  // background-position: center;
+
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(14, 203, 143, 1) 0%,
+    rgba(218, 96, 96, 1) 0%,
+    rgba(8, 143, 207, 1) 100%,
+    rgba(0, 212, 255, 1) 100%
+  );
+}
+
+.likeBody {
+  margin: 100px 10px;
+  border: 3px solid black;
+}

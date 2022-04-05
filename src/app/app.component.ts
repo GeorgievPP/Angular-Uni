@@ -16,14 +16,15 @@ export class AppComponent {
   }
 
   constructor(private userService: UserService) {
-    // this.userService.getProfileInfo(this.userService.user?._id!).subscribe({
-    //   error: (error) => {
-    //     this.userService.user = null;
-    //     throw error;
+    console.log(userService)
+    this.userService.getUserInfo().subscribe({
+      error: (error) => {
+        this.userService.user = null;
+        throw error;
 
-    //   }
-    // })
-    // console.log(this.userService.user)
+      }
+    })
+    console.log(this.userService)
   }
 
 

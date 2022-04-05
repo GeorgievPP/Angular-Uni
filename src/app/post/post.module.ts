@@ -17,7 +17,7 @@ import { ProfilePostsComponent } from './profile-posts/profile-posts.component';
     NewPostComponent,
     OnePostComponent,
     EditPostComponent,
-    ProfilePostsComponent
+    ProfilePostsComponent,
   ],
   imports: [
     CommonModule,

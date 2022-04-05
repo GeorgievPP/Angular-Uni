@@ -1,70 +1,98 @@
-<div class="container">
-  <!-- theme content  -->
-  <div *ngIf="post" class="theme-content">
-    <!-- theme-title  -->
-    <div class="theme-title">
-      <div class="theme-name-wrapper">
-        <div class="theme-name">
-          <h2>{{ post?.name }}</h2>
-          <p>Date: {{ post.name }} <time></time></p>
-          <p>
-            Date2: <time>{{ post.createdAt }}</time>
-          </p>
-          <p>Date3: {{ post.author }}</p>
-          <p>Date4: {{ post.description }}</p>
-          <p>Date5: {{ post.data }}</p>
-          <p>Date6: {{ post.groupMembers.length }}</p>
-          <p>Date7: {{ post.groupMembers }}</p>
+<div class="likeBody">
+  <div class="container">
+    <!-- theme content  -->
+    <div *ngIf="post" class="theme-content">
+      <!-- theme-title  -->
+      <div class="theme-title">
+        <div class="theme-name-wrapper">
+          <div class="theme-name">
+            <h2>{{ post?.name }}</h2>
+            <p>Name of Post: {{ post.name }} <time></time></p>
+            <p>
+              Crerated At: <time>{{ post.createdAt }}</time>
+            </p>
+            <p>Post - Author ID: {{ post.author._id }}</p>
+            <p>Post - Author EMAIL: {{ post.author.email }}</p>
+            <p>Post Description: {{ post.description }}</p>
+            <p>Post Creator Name: {{ post.creatorName }}</p>
+            <p>Post Public: {{ post.public }}</p>
+            <p>Post Likes: {{ post.groupMembers.length }}</p>
+            <div *ngIf="post.groupMembers.length > 0">
+              <h3>Users Liked the Post</h3>
+              <div *ngFor="let user of post.groupMembers">
+                <p>---------------------------------------</p>
+                <p>USER_FULLNAME: {{ user.fullName }}</p>
+                <p>USER_EMAIL: {{ user.email }}</p>
+                <p>USER_ID: {{ user._id }}</p>
+                <p>USER OwnPosts_lenght: {{ user.ownProjects.length }}</p>
+                <p>USER LIKED POST (OTHERPROJECT_LENGTH): {{ user.otherProjects.length }}</p>
+                <p>USER OtherProjects obect ili idto: {{ user.otherProjects }}</p>
+                <p>---------------------------------------</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="buttons">
-      <button type="button" routerLink="/posts" class="cancel">Back To All Posts</button>
-
-      <div *ngIf="credit">
-        <button>
-          <p class="edit-btn" [routerLink]="['/posts', post._id, 'edit']">
-            Edit Post
-          </p>
+      <div class="buttons">
+        <button type="button" routerLink="/posts" class="cancel">
+          Back To All Posts
         </button>
-        <button (click)="onDeletePost(post._id)">Delete</button>
-      </div>
-      <div *ngIf="!credit">
-        <button (click)="likePost(post._id, getEmail)">Like</button>
-        <button (click)="unlikePost(post._id, getEmail)">Unlike</button>
-      </div>
-    </div>
 
-    <h2>Comments:</h2>
-    <form [formGroup]="form" action="" method="post" (ngSubmit)="addComment()">
-      <p>
-        <input
-          type="text"
-          name="description"
-          id="description"
-          placeholder="description"
-          placeholder="description"
-          formControlName="description"
-        />
-      </p>
-      <ng-container *ngIf="form.get('description')?.touched">
-        <p *ngIf="form.get('description')?.errors?.['required']" class="error">
-          Comment cannot be empty.
+        <div *ngIf="credit">
+          <button>
+            <p class="edit-btn" [routerLink]="['/posts', post._id, 'edit']">
+              Edit Post
+            </p>
+          </button>
+          <button (click)="onDeletePost(post._id)">Delete</button>
+        </div>
+        <div *ngIf="!credit">
+          <button *ngIf="!leketa" (click)="likePost(post._id, getEmail)">Like</button>
+          <button *ngIf="leketa" (click)="unlikePost(post._id, getEmail)">Unlike</button>
+        </div>
+      </div>
+
+      <h2>Comments:</h2>
+      <form [formGroup]="form" action="" method="post" (ngSubmit)="addComment()">
+        <p>
+          <input
+            type="text"
+            name="description"
+            id="description"
+            placeholder="description"
+            placeholder="description"
+            formControlName="description"
+          />
         </p>
-      </ng-container>
-      <button>ADD Comment</button>
-    </form>
-    -->
-    <div *ngIf="getComments">
-      <div *ngFor="let comment of comments" class="comments">
-        <div class="comments-text">
-          <p>{{ comment.description }}</p>
-          <p>{{ comment.author }}</p>
-          <p>{{ comment.post }}</p>
-          <p>{{ comment.createdAt }}</p>
+        <ng-container *ngIf="form.get('description')?.touched">
+          <p *ngIf="form.get('description')?.errors?.['required']" class="error">
+            Comment cannot be empty.
+          </p>
+        </ng-container>
+        <button>ADD Comment</button>
+      </form>
+      -->
+      <div *ngIf="getComments">
+        <div *ngFor="let comment of comments" class="comments">
+          <div class="comments-text">
+            <p>---------------------------------------</p>
+            <p>Comment: {{ comment.description }}</p>
+            <p>Comment Author Name: {{ comment.author }}</p>
+            <p>Comment Author ID: {{ comment.jimHelper }}</p>
+            <p>Comment-Post ID: {{ comment.post }}</p>
+            <p>Comment Created At:{{ comment.createdAt }}</p>
+            <!-- <div *ngIf="comment.author == fullName || fullName == post.creatorName"> -->
+              <div *ngIf="comment.jimHelper == getUserId || getUserId == post.author._id">
+              <button (click)="onDeleteComment(comment._id, post._id)">
+                Delete Comment
+              </button>
+            </div>
+            <p>---------------------------------------</p>
+          </div>
         </div>
       </div>
     </div>
   </div>
+
 </div>

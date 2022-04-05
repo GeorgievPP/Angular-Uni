@@ -1,5 +1,6 @@
-<div *ngIf="!posts"><p class="loading">Loading...</p></div>
-<h1 class="programs-title">Posts</h1>
+<div class="likeBody">
+  <div *ngIf="!posts"><p class="loading">Loading...</p></div>
+<h1 class="programs-title">My Posts</h1>
 <section class="programs" *ngIf="posts">
   <article *ngFor="let post of posts" class="program design-basics">
     <div class="wrapper" [routerLink]="['/posts', post._id]">
@@ -23,3 +24,5 @@
     </div>
   </article>
 </section>
+
+</div>

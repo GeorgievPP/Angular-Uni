@@ -1,11 +1,12 @@
-<div *ngIf="!posts"><p class="loading">Loading...</p></div>
+<div class="likeBody">
+  <div *ngIf="!posts"><p class="loading">Loading...</p></div>
 <h1 class="programs-title">Posts</h1>
 <section class="programs" *ngIf="posts">
   <article *ngFor="let post of posts" class="program design-basics">
     <div class="wrapper" [routerLink]="['/posts', post._id]">
       <p>Creator Name:</p>
       <p class="program-title">{{ post.creatorName }}</p>
-      <p>Name:</p>
+      <p>Post Name:</p>
       <p class="program-title">{{ post.name }}</p>
       <p>description:</p>
       <p class="program-title">{{ post.description }}</p>
@@ -13,13 +14,14 @@
       <p class="program-title">{{ post.createdAt }}</p>
       <p>ImageUrl:</p>
       <img [src]="post.imageUrl" alt="NISHTO" width="300px">
-      <p>Author ID:</p>
-      <p class="program-title">{{ post.author }}</p>
+      <!-- <p>Author ID:</p>
+      <p class="program-title">{{ post.author }}</p> -->
       <!-- <p class="program-title">{{ post.data }}</p> -->
-      <p>GroupMembers:</p>
-      <p class="program-title">{{ post.groupMembers }}</p>
+      <!-- <p>GroupMembers:</p>
+      <p class="program-title">{{ post.groupMembers }}</p> -->
       <p>Likes:</p>
       <p class="program-title">{{ post.groupMembers.length }}</p>
     </div>
   </article>
 </section>
+</div>
