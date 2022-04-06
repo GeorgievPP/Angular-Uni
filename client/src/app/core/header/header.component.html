@@ -10,7 +10,6 @@
       <li class="navbar-ul-li"><a class="navbar-ul-li-a" routerLink="/posts">Posts</a></li>
     </ul>
     <ul class="navbar-ul" *ngIf="isLogged">
-      <!-- <li class="nav-list-item"><a (click)="logout()">LogoutII</a></li> -->
       <li class="navbar-ul-li"><a class="navbar-ul-li-a" routerLink="/home">Home</a></li>
       <li class="navbar-ul-li"><a class="navbar-ul-li-a" routerLink="/posts">Posts</a></li>
       <li class="navbar-ul-li"><a class="navbar-ul-li-a" routerLink="/add-post">New Post</a></li>
@@ -18,7 +17,7 @@
       <li class="navbar-ul-li">
         <a class="navbar-ul-li-a" routerLink="/profile">{{ fullName }}'s profile</a>
       </li>
-      <li class="navbar-ul-li"><a class="navbar-ul-li-a" href="#">Logout</a></li>
+      <li class="navbar-ul-li"><a (click)="logout()">Logout</a></li>
     </ul>
     <!-- </ul> -->
   </nav>

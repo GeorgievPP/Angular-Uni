@@ -49,7 +49,7 @@ export class UserService {
 
   logout() {
     return this.http
-      .post<IUser>(`${apiUrl}/v1/auth/logout`, {}, { withCredentials: true })
+      .get<IUser>(`${apiUrl}/v1/auth/logout`, { withCredentials: true })
       .pipe(tap(() => (this.user = null)));
   }
 }

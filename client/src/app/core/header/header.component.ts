@@ -20,7 +20,7 @@ export class HeaderComponent {
   constructor(private userService: UserService, private router: Router) { }
 
   logout(): void {
-    this.userService.logout();
+    this.userService.logout().subscribe();
     this.router.navigate(['/']);
   }
 
