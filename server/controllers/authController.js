@@ -47,8 +47,9 @@ router.post("/profile", async (req, res) => {
 router.get("/start", async (req, res) => {
   // if (!req.user) {return;}
   // console.log('DDDD', req);
+  // console.log(req.cookies.authCookieName);
   // res.clearCookie('authCookieName')
-  console.log(req.cookies.authCookieName);
+  // console.log(req.cookies.authCookieName);
   const userId = req.cookies.authCookieName;
   try {
     const user = await authService.getUserById(userId);
@@ -60,6 +61,17 @@ router.get("/start", async (req, res) => {
     res.status(400).send(error.message);
   }
   // res.status(400).json("User does not exists");
+});
+
+router.get('/logout', (req, res) => {
+  // res.clearCookie('authCookieName')
+  
+  // // res.status(204).end();
+  console.log('tyka')
+  console.log(req.cookies);
+  res.clearCookie('authCookieName')
+  .status(204)
+  .end();
 });
 
 // router.post('/profile-posts', async (req, res) => {

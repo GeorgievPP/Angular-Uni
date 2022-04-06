@@ -1,5 +1,5 @@
 const User = require('../models/User');
-const Project = require('../models/Project');
+// const Project = require('../models/Post');
 const bcrypt = require('bcrypt');
 const jwt = require("jsonwebtoken");
 const { TOKEN_KEY } = require('../config/constants');

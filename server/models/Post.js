@@ -13,4 +13,4 @@ const schema = new Schema({
     groupMembers: [{ type: Schema.Types.ObjectId, ref: 'User', default: [] }],
 });
 
-module.exports = model('Project', schema);
+module.exports = model('Post', schema);

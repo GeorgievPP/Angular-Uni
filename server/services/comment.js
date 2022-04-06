@@ -1,10 +1,7 @@
-const Project = require("../models/Project");
-// const User = require("../models/User");
+const Project = require("../models/Post");
 const Comment = require("../models/Comment");
-// const authService = require("./auth");
 
 async function getAllComments(neshto) {
-  //   const post = await Project.findById(id);
   return await (await Comment.find({ post: neshto })).reverse();
 }
 
