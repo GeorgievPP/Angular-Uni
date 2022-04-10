@@ -14,6 +14,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './core/header/header.component';
 import { FooterComponent } from './core/footer/footer.component';
 
+import {NgxPaginationModule} from 'ngx-pagination';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,6 +30,7 @@ import { FooterComponent } from './core/footer/footer.component';
     HttpClientModule,
     PostModule,
     AppRoutingModule,
+    NgxPaginationModule,
   ],
   providers: [
     ContentService

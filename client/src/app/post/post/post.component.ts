@@ -10,12 +10,18 @@ import { IPost } from '../../shared/interfaces/post';
 export class PostComponent {
   posts: IPost[] | undefined;
 
+  totalLength: any;
+  page: number = 1;
+
   constructor(private contentService: ContentService) {
     this.fetchPosts();
   }
 
   fetchPosts(): void {
     this.posts = undefined;
-    this.contentService.loadPosts().subscribe((posts) => (this.posts = posts));
+    this.contentService.loadPosts().subscribe((posts) => {
+      this.posts = posts;
+      this.totalLength = posts.length;
+    });
   }
 }

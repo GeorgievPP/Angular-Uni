@@ -8,6 +8,7 @@ import { SharedModule } from '../shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditPostComponent } from './edit-post/edit-post.component';
 import { ProfilePostsComponent } from './profile-posts/profile-posts.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 
@@ -24,7 +25,8 @@ import { ProfilePostsComponent } from './profile-posts/profile-posts.component';
     PostRoutingModule,
     SharedModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
   ]
 })
 export class PostModule { }
