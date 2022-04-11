@@ -1,32 +1,6 @@
-// .login {
-//   padding: 35px;
-//   background: white;
-//   border-radius: 5px;
-// }
-
-// .login-title {
-//   background-color: green;
-//   text-align: center;
-// }
-
-// .login-field {
-//   background-color: red;
-// }
-
-// .login-field-par {
-// }
-
-// .login-field-par-input {
-
-// }
-
-// .login-field-par-icon {
-
-// }
-
 .centered-content {
   position: absolute;
-  top: 50%;
+  top: 400px;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 400px;
@@ -63,7 +37,7 @@ form .txt_field {
 
 .txt_field label {
   position: absolute;
-  top: 50%;
+  top: 0;
   left: 5px;
   color: #adadad;
   transform: translateY(-50%);
@@ -91,9 +65,8 @@ form .txt_field {
 
 .txt_field input:focus ~ span::before,
 .txt_field input:valid ~ span::before {
- width: 100%;
+  width: 100%;
 }
-
 
 button {
   width: 100%;
@@ -108,12 +81,12 @@ button {
   outline: none;
 }
 
-button:hover{
+button:hover {
   border-color: #2691d9;
   transition: 0.5s;
 }
 
-.signup{
+.signup {
   margin: 30px 0;
   text-align: center;
   font-size: 16px;
@@ -127,4 +100,8 @@ button:hover{
 
 .signup a:hover {
   text-decoration: underline;
+}
+
+.error {
+  color: red;
 }

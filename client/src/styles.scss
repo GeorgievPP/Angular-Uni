@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-body {
+html {
   margin: 0;
   padding: 0;
   font-family: Arial;
@@ -19,6 +19,16 @@ body {
     rgba(8, 143, 207, 1) 100%,
     rgba(0, 212, 255, 1) 100%
   );
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
 }
 
 .likeBody {
