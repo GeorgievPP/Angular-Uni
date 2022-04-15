@@ -16,13 +16,13 @@
     >
       <img [src]="post.imageUrl" alt="NISHTO" class="poster"/>
       <div class="info">
-        <h3 class="post-title">PostName: {{ post.name }}</h3>
-        <p class="creator">Creator: {{ post.creatorName }}</p>
-        <p class="desc">Desc: {{ post.description | shorten: 20 }}</p>
+        <h3 class="post-title"><i class="fa-brands fa-battle-net"></i> {{ post.name }}</h3>
+        <p class="creator"><i class="fa-solid fa-user"></i> by {{ post.creatorName }}</p>
+        <p class="desc"><i class="fa-solid fa-clock"></i> {{ post.createdAt | timeDiff }}</p>
+        <p class="desc"><i class="fa-solid fa-comment-dots"></i> {{ post.description | shorten: 20 }}</p>
         <!-- <p class="at">At: {{ post.createdAt }}</p> -->
-        <!-- <p class="timeAgo">TimeAgo: {{ post.createdAt | timeDiff }}</p> -->
         <ul class="likes">
-          <li>Likes:</li>
+          <li><i class="fa-solid fa-thumbs-up"></i></li>
           <li>{{ post.groupMembers.length }}</li>
         </ul>
       </div>

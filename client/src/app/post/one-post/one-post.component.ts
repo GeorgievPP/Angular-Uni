@@ -9,11 +9,13 @@ import { UserService } from 'src/app/user/user.service';
 
 @Component({
   selector: 'app-one-post',
-  templateUrl: './one-post.component.html',
+  templateUrl: './one-post2.component.html',
   styleUrls: ['./one-post.component.scss'],
 })
 export class OnePostComponent {
   post: IPost | undefined;
+
+  toggle: boolean = false;
 
   form: FormGroup;
 
@@ -64,8 +66,12 @@ export class OnePostComponent {
   fetchPost(): void {
     this.post = undefined;
     const id = this.activatedRoute.snapshot.params['postId'];
-    // console.log(this.activatedRoute.snapshot.params) !BETON!;
+    // console.log(this.activatedRoute.snapshot.params) !;
     this.contentService.loadPost(id).subscribe((post) => (this.post = post));
+  }
+
+  toggleLikes() {
+    this.toggle = !this.toggle;
   }
 
   likePost(postId: string, email: string): void {

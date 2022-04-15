@@ -12,6 +12,9 @@ export class ProfilePostsComponent  {
 
   posts: IPost[] | undefined;
 
+  totalLength: any;
+  page: number = 1;
+
   constructor(private contentService: ContentService, private userService: UserService) {
     this.getProfilePosts();
   }
@@ -21,6 +24,9 @@ export class ProfilePostsComponent  {
     const data = {
       userId: this.userService.user?._id
     }
-    this.contentService.loadProfilePosts(data).subscribe((posts) => (this.posts = posts));
+    this.contentService.loadProfilePosts(data).subscribe((posts) => {
+      this.posts = posts
+      this.totalLength = posts.length;
+    });
   }
 }

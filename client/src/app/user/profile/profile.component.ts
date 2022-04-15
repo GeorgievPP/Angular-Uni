@@ -26,6 +26,8 @@ export class ProfileComponent {
     return this.userService.user?.otherProjects || [];
   }
 
+  page: number = 1;
+
   constructor(private userService: UserService) {
     this.fetchUser();
     //   this.GetOtherProjects.forEach((element) => {

@@ -1,95 +1,87 @@
-<div class="likeBody">
-  <div class="container">
-    <div class="new-theme-border">
-      <div class="header-background">
-        <span>New Theme</span>
-      </div>
-      <form
-        [formGroup]="form"
-        class="formata"
-        action=""
-        method="post"
-        (ngSubmit)="createPost()"
-      >
-        <!-- <div class="new-theme-title"> -->
-        <p>
-          <input
-            type="text"
-            name="name"
-            id="name"
-            placeholder="Name"
-            formControlName="name"
-          />
-        </p>
-        <ng-container *ngIf="form.get('name')?.touched">
-          <p *ngIf="form.get('name')?.errors?.['required']" class="error">
-            Post name is required.
-          </p>
-          <p *ngIf="form.get('name')?.errors?.['minlength']" class="error">
-            Post name must be at least 4 characters long.
-          </p>
-        </ng-container>
-
-        <p>
-          <input
-            type="text"
-            name="description"
-            id="description"
-            placeholder="description"
-            formControlName="description"
-          />
-        </p>
-        <ng-container *ngIf="form.get('description')?.touched">
-          <p *ngIf="form.get('description')?.errors?.['required']" class="error">
-            Post description is required.
-          </p>
-          <p *ngIf="form.get('description')?.errors?.['minlength']" class="error">
-            Post description must be at least 4 characters long.
-          </p>
-        </ng-container>
-
-        <p>
-          <input
-            type="text"
-            name="imageUrl"
-            id="imageUrl"
-            placeholder="imageUrl"
-            formControlName="imageUrl"
-          />
-        </p>
-        <ng-container *ngIf="form.get('imageUrl')?.touched">
-          <p *ngIf="form.get('imageUrl')?.errors?.['required']" class="error">
-            Post description is required.
-          </p>
-        </ng-container>
-
-        <!-- <p>Radio Btn: </p>
-        <p>
-          <input type="radio" value="male" formControlName="gender"> Public
-          <input type="radio" value="female" formControlName="gender"> Non Public
-       </p> -->
-
-        <p>
-          Public Yes?:
-          <input
-            type="checkbox"
-            name="public"
-            id="public"
-            formControlName="public"
-          />
-        </p>
-
-        <div class="new-theme-buttons">
-          <button type="button" routerLink="/posts" class="cancel">Cancel</button>
-          <button>Post</button>
-        </div>
-      </form>
-
-      <div>
-        <p>{{ fullName }}</p>
-        <p>{{ getId }}</p>
-      </div>
+<div class="centered-content">
+  <h1 class="register-title">New Post</h1>
+  <form
+    [formGroup]="form"
+    class="formata"
+    action=""
+    method="post"
+    (ngSubmit)="createPost()"
+  >
+    <div class="txt_field">
+      <input
+        type="text"
+        name="name"
+        id="name"
+        placeholder="Name"
+        formControlName="name"
+      />
+      <span></span>
+      <label for="name">Post Title</label>
     </div>
-  </div>
+
+    <ng-container *ngIf="form.get('name')?.touched">
+      <p *ngIf="form.get('name')?.errors?.['required']" class="error">
+        Post name is required.
+      </p>
+      <p *ngIf="form.get('name')?.errors?.['minlength']" class="error">
+        Post name must be at least 4 characters long.
+      </p>
+    </ng-container>
+
+    <div class="txt_field">
+      <input
+        type="text"
+        name="description"
+        id="description"
+        placeholder="description"
+        formControlName="description"
+      />
+      <span></span>
+      <label for="description">Description</label>
+    </div>
+
+    <ng-container *ngIf="form.get('description')?.touched">
+      <p *ngIf="form.get('description')?.errors?.['required']" class="error">
+        Post description is required.
+      </p>
+      <p *ngIf="form.get('description')?.errors?.['minlength']" class="error">
+        Post description must be at least 4 characters long.
+      </p>
+    </ng-container>
+
+    <div class="txt_field">
+      <input
+        type="text"
+        name="imageUrl"
+        id="imageUrl"
+        placeholder="imageUrl"
+        formControlName="imageUrl"
+      />
+      <span></span>
+      <label for="imageUrl">Image URL</label>
+    </div>
+
+    <ng-container *ngIf="form.get('imageUrl')?.touched">
+      <p *ngIf="form.get('imageUrl')?.errors?.['required']" class="error">
+        Post description is required.
+      </p>
+    </ng-container>
+
+    <div>
+      <input
+        type="checkbox"
+        name="public"
+        id="public"
+        formControlName="public"
+      />
+      <span></span>
+      <label for="public" style="font-size: 20px; color: #2691d9;">Public</label>
+    </div>
+
+    <div class="new-theme-buttons">
+      <button type="button" routerLink="/posts" class="cancel">Cancel</button>
+      <button class="button">Create Post</button>
+    </div>
+  </form>
 
 </div>

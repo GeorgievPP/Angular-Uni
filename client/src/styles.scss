@@ -1,4 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import url("https://use.fontawesome.com/releases/v6.1.1/css/all.css");
+
 html {
   margin: 0;
   padding: 0;
@@ -10,15 +13,17 @@ html {
   // background-size: cover;
   // background-position: center;
 
-  background: rgb(2, 0, 36);
-  background: linear-gradient(
-    90deg,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(14, 203, 143, 1) 0%,
-    rgba(218, 96, 96, 1) 0%,
-    rgba(8, 143, 207, 1) 100%,
-    rgba(0, 212, 255, 1) 100%
-  );
+  // background: rgb(2, 0, 36);
+  // background: linear-gradient(
+  //   90deg,
+  //   rgba(2, 0, 36, 1) 0%,
+  //   rgba(14, 203, 143, 1) 0%,
+  //   rgba(218, 96, 96, 1) 0%,
+  //   rgba(8, 143, 207, 1) 100%,
+  //   rgba(0, 212, 255, 1) 100%
+  // );
+  background: rgb(197, 193, 255);
+  position: relative;
 }
 
 *,
@@ -33,5 +38,5 @@ ul {
 
 .likeBody {
   margin: 100px 10px;
-  border: 3px solid black;
+  // border: 3px solid black;
 }

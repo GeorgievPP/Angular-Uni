@@ -1,19 +1,15 @@
-<section class="home-container">
-  <article class="home-content">
-    <h3 class="home-title">Welcome</h3>
+<section class="main">
+  <article class="main-img">
+    <img src="././assets/for.jpg" alt="" class="main-img-img" />
+  </article>
+  <article class="main-content">
+    <h1 class="home-title">Welcome</h1>
     <p class="home-text">
-      Write lil CSS. Something about that you enter in the site. Something
-      funny! :D
+      Share your thoughts, create some posts or like them
     </p>
-    <article *ngIf="!isLogged" class="home-log">
-      <ul class="home-log-content">
-        <li class="home-log-options">
-          <a routerLink="/login" class="home-log-btn">Login</a>
-        </li>
-        <li class="home-log-options">
-          <a routerLink="/register" class="home-log-btn">Register</a>
-        </li>
-      </ul>
-    </article>
+    <div *ngIf="!isLogged" class="home-log">
+          <button routerLink="/login" class="home-log-btn">Login</button>
+          <button routerLink="/register" class="home-log-btn">Register</button>
+    </div>
   </article>
 </section>

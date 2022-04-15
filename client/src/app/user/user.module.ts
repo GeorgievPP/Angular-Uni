@@ -7,6 +7,7 @@ import { UserRoutingModule } from './user-routing.module';
 import { UserService } from './user.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 
@@ -21,7 +22,9 @@ import { SharedModule } from '../shared/shared.module';
     SharedModule,
     UserRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
+
   ],
   providers: [
     UserService

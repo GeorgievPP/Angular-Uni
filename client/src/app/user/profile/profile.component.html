@@ -34,27 +34,25 @@
 
       <!-- <button class="green-button">Edit</button> -->
     </div>
-    <div>
-      <p>My Likes Collection:</p>
-      <div class="programs" *ngIf="getLikedPosts.length > 0">
-        <div class="program design-basics" *ngFor="let post of getLikedPosts">
-          <div class="wrapper" [routerLink]="['/posts', post._id]">
-            <p>Creator Name:</p>
-            <p class="program-title">{{ post.creatorName }}</p>
-            <p>Post Name:</p>
-            <p class="program-title">{{ post.name }}</p>
-            <p>description:</p>
-            <p class="program-title">{{ post.description }}</p>
-            <p>Created At:</p>
-            <p class="program-title">{{ post.createdAt }}</p>
-            <p>ImageUrl:</p>
-            <img [src]="post.imageUrl" alt="NISHTO" width="300px" />
-            <!-- <p>Likes:</p>
-        <p class="program-title">{{ post.groupMembers.length }}</p> -->
+
+    <div id="post-card">
+      <h3 class="title">My Likes Collection:</h3>
+      <div class="all-posts" *ngIf="getLikedPosts.length > 0">
+        <div class="card flex_item" *ngFor="let post of getLikedPosts  | paginate
+        : { itemsPerPage: 6, currentPage: page, totalItems: getLikedPosts.length}" [routerLink]="['/posts', post._id]">
+          <img [src]="post.imageUrl" alt="NISHTO"/>
+          <div class="info">
+            <h3><i class="fa-brands fa-battle-net"></i> {{ post.name }}</h3>
+            <p class="program-title">by {{ post.creatorName }}</p>
           </div>
         </div>
       </div>
+      <pagination-controls (pageChange)="page = $event"></pagination-controls>
     </div>
+
+
   </div>
 
 </div>
+
+

@@ -1,62 +1,160 @@
-.programs {
-  background: #54536f;
-  padding: 30px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  position: relative;
-  max-height: 510px;
-  margin-bottom: 220px;
+// .programs {
+//   background: #54536f;
+//   padding: 30px;
+//   display: flex;
+//   flex-wrap: wrap;
+//   justify-content: center;
+//   position: relative;
+//   max-height: 510px;
+//   margin-bottom: 220px;
+// }
+
+
+// .programs-title {
+//   color: black;
+//   text-align: center;
+//   flex-basis: 100%;
+//   font-size: 35px;
+//   padding-top: 15px;
+// }
+
+// .program {
+//   background: white;
+//   border-radius: 12px;
+//   width: 30%;
+//   margin: 15px;
+//   max-width: 400px;
+//   text-align: center;
+//   box-shadow: 1px 1px 7px -3px black;
+//   position: relative;
+//   top: 25px;
+//   display: flex;
+//   flex-direction: column;
+// }
+
+// .program-title {
+//   font-size: 24px;
+//   color: #575471;
+//   flex-grow: 1;
+// }
+
+// .program-subtitle {
+//   padding: 15px;
+// }
+
+// .program-cta {
+//   background: #a555cc;
+//   color: white;
+//   text-transform: uppercase;
+//   font-weight: bold;
+//   padding: 12px 18px;
+//   border: none;
+//   border-radius: 20px;
+//   box-shadow: 1px 1px 6px -2px black;
+//   margin: 46px auto;
+// }
+
+// .program-footer {
+//   color: black;
+//   padding: 8px;
+//   border-bottom-left-radius: 12px;
+//   border-bottom-right-radius: 12px;
+// }
+
+
+img {
+  width: 100%;
+}
+
+.card {
+  width: 28vw;
+  border: 1px solid black;
+  -webkit-box-shadow: 0px 5px 14px -4px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 5px 14px -4px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 5px 14px -4px rgba(0, 0, 0, 0.75);
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.card > div {
+  padding: 0 1rem 0.5rem 1rem;
 }
 
 
-.programs-title {
-  color: black;
+#post-card {
+  padding: 100px 1rem;
+}
+
+#post-card .title {
   text-align: center;
-  flex-basis: 100%;
-  font-size: 35px;
-  padding-top: 15px;
+  margin-bottom: 3rem;
 }
 
-.program {
-  background: white;
-  border-radius: 12px;
-  width: 30%;
-  margin: 15px;
-  max-width: 400px;
-  text-align: center;
-  box-shadow: 1px 1px 7px -3px black;
-  position: relative;
-  top: 25px;
-  display: flex;
-  flex-direction: column;
+#post-card .all-posts {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 1rem;
 }
 
-.program-title {
-  font-size: 24px;
-  color: #575471;
-  flex-grow: 1;
-}
+// #post-card .postMember {
+//   // width: 300px;
+//   position: relative;
+//   overflow: hidden;
+// }
 
-.program-subtitle {
-  padding: 15px;
-}
+// #post-card .postMember .poster {
+//   width: 100%;
+// }
 
-.program-cta {
-  background: #a555cc;
-  color: white;
-  text-transform: uppercase;
-  font-weight: bold;
-  padding: 12px 18px;
-  border: none;
-  border-radius: 20px;
-  box-shadow: 1px 1px 6px -2px black;
-  margin: 46px auto;
-}
+// #post-card .postMember::after {
+//   content: "";
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   right: 0;
+//   bottom: 0;
+//   background-color: #2b6cb0;
+//   opacity: 0.1;
+// }
 
-.program-footer {
-  color: black;
-  padding: 8px;
-  border-bottom-left-radius: 12px;
-  border-bottom-right-radius: 12px;
-}
+// #post-card .postMember .info {
+//   position: absolute;
+//   bottom: -110px;
+//   left: 0;
+//   z-index: 10;
+//   padding: 1rem;
+//   transition: bottom 300ms ease-in-out;
+// }
+
+// #post-card .postMember:hover .info {
+//   bottom: 0;
+// }
+
+// #post-card .postMember .info .post-title,
+// #post-card .postMember .info .creator,
+// #post-card .postMember .info .desc {
+//   color: #fff;
+//   margin-bottom: 0.85rem;
+// }
+
+// #post-card .postMember .info .creator {
+//   letter-spacing: 1px;
+//   font-weight: bold;
+// }
+
+// #post-card .postMember .info .desc {
+//   line-height: 1.3;
+// }
+
+// #post-card .postMember .info .likes li{
+//   display: inline-block;
+//   margin-right: 12px;
+//   font-size: 32px;
+//   color: #fff;
+//   transition: color 300ms ease-in-out;
+// }
+
+// #post-card .postMember .info .likes li:hover{
+//   color: #741313;
+// }

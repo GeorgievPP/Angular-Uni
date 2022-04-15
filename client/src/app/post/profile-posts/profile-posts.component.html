@@ -1,28 +1,32 @@
-<div class="likeBody">
+<div id="post-card">
+  <h2 class="title">My Posts</h2>
   <div *ngIf="!posts"><p class="loading">Loading...</p></div>
-<h1 class="programs-title">My Posts</h1>
-<section class="programs" *ngIf="posts">
-  <article *ngFor="let post of posts" class="program design-basics">
-    <div class="wrapper" [routerLink]="['/posts', post._id]">
-      <p>Creator Name:</p>
-      <p class="program-title">{{ post.creatorName }}</p>
-      <p>Name:</p>
-      <p class="program-title">{{ post.name }}</p>
-      <p>description:</p>
-      <p class="program-title">{{ post.description }}</p>
-      <p>Created At:</p>
-      <p class="program-title">{{ post.createdAt }}</p>
-      <p>ImageUrl:</p>
-      <img [src]="post.imageUrl" alt="NISHTO" width="300px">
-      <p>Author ID:</p>
-      <p class="program-title">{{ post.author }}</p>
-      <!-- <p class="program-title">{{ post.data }}</p> -->
-      <p>GroupMembers:</p>
-      <p class="program-title">{{ post.groupMembers }}</p>
-      <p>Likes:</p>
-      <p class="program-title">{{ post.groupMembers.length }}</p>
-    </div>
-  </article>
-</section>
+  <section class="no-posts" *ngIf="!posts">
+    <div class="no-post-text">There are no posts! Create First One!</div>
+  </section>
+  <section class="all-posts" *ngIf="posts">
+    <article
+      class="card flex_item"
+      *ngFor="
+        let post of posts
+          | paginate
+            : { itemsPerPage: 6, currentPage: page, totalItems: totalLength }
+      "
+      [routerLink]="['/posts', post._id]"
+    >
+      <img [src]="post.imageUrl" alt="NISHTO" class="poster" />
+      <div class="info">
+        <h3><i class="fa-brands fa-battle-net"></i> {{ post.name }}</h3>
+        <!-- <p>by {{ post.creatorName }}</p> -->
+        <p><i class="fa-solid fa-clock"></i> {{ post.createdAt | timeDiff }}</p>
+        <p><i class="fa-solid fa-comment-dots"></i> {{ post.description | shorten: 20 }}</p>
+        <!-- <p class="at">At: {{ post.createdAt }}</p> -->
 
+        <p><i class="fa-solid fa-thumbs-up"></i> {{ post.groupMembers.length }}</p>
+        <p><i class="fa-solid fa-people-roof"></i> {{ post.public }}</p>
+      </div>
+    </article>
+
+    <pagination-controls (pageChange)="page = $event"></pagination-controls>
+  </section>
 </div>
