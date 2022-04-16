@@ -1,9 +1,9 @@
 <div id="post-card">
   <h2 class="title">My Posts</h2>
   <div *ngIf="!posts"><p class="loading">Loading...</p></div>
-  <section class="no-posts" *ngIf="!posts">
-    <div class="no-post-text">There are no posts! Create First One!</div>
-  </section>
+  <div *ngIf="posts?.length == 0" class="no-post-text">
+    There are no posts! <a routerLink="/add-post">Create</a> First One!
+  </div>
   <section class="all-posts" *ngIf="posts">
     <article
       class="card flex_item"
@@ -19,10 +19,15 @@
         <h3><i class="fa-brands fa-battle-net"></i> {{ post.name }}</h3>
         <!-- <p>by {{ post.creatorName }}</p> -->
         <p><i class="fa-solid fa-clock"></i> {{ post.createdAt | timeDiff }}</p>
-        <p><i class="fa-solid fa-comment-dots"></i> {{ post.description | shorten: 20 }}</p>
+        <p>
+          <i class="fa-solid fa-comment-dots"></i>
+          {{ post.description | shorten: 20 }}
+        </p>
         <!-- <p class="at">At: {{ post.createdAt }}</p> -->
 
-        <p><i class="fa-solid fa-thumbs-up"></i> {{ post.groupMembers.length }}</p>
+        <p>
+          <i class="fa-solid fa-thumbs-up"></i> {{ post.groupMembers.length }}
+        </p>
         <p><i class="fa-solid fa-people-roof"></i> {{ post.public }}</p>
       </div>
     </article>

@@ -6,6 +6,7 @@
     <h2 class="post-title">{{ post.name }}</h2>
     <p class="post-user-info">by {{ post.creatorName }}</p>
     <p class="post-user-info">email: {{ post.author.email }}</p>
+    <p class="post-user-info">{{ post.createdAt | timeDiff }}</p>
     <p class="post-info">Description: {{ post.description }}</p>
     <p class="post-info">Likes: {{ post.groupMembers.length }}</p>
 

@@ -1,24 +1,36 @@
 <header class="header">
   <nav class="navbar">
-    <!-- <article class="nav-logo"> -->
     <div class="logo" routerLink="/">LOGO</div>
-    <!-- </article> -->
-    <!-- <ul class="nav-list"> -->
     <ul class="navbar-ul" *ngIf="!isLogged">
-      <li class="navbar-ul-li"><a class="navbar-ul-li-a" routerLink="/login">Login</a></li>
-      <li class="navbar-ul-li"><a class="navbar-ul-li-a" routerLink="/register">Register</a></li>
-      <li class="navbar-ul-li"><a class="navbar-ul-li-a" routerLink="/posts">Posts</a></li>
+      <li class="navbar-ul-li">
+        <a class="navbar-ul-li-a" routerLink="/login">Login</a>
+      </li>
+      <li class="navbar-ul-li">
+        <a class="navbar-ul-li-a" routerLink="/register">Register</a>
+      </li>
+      <li class="navbar-ul-li">
+        <a class="navbar-ul-li-a" routerLink="/posts">Posts</a>
+      </li>
     </ul>
     <ul class="navbar-ul" *ngIf="isLogged">
-      <li class="navbar-ul-li"><a class="navbar-ul-li-a" routerLink="/home">Home</a></li>
-      <li class="navbar-ul-li"><a class="navbar-ul-li-a" routerLink="/posts">Posts</a></li>
-      <li class="navbar-ul-li"><a class="navbar-ul-li-a" routerLink="/add-post">New Post</a></li>
-      <li class="navbar-ul-li"><a class="navbar-ul-li-a" routerLink="/profile-posts">My Posts</a></li>
       <li class="navbar-ul-li">
-        <a class="navbar-ul-li-a" routerLink="/profile">{{ fullName }}'s profile</a>
+        <a class="navbar-ul-li-a" routerLink="/home">Home</a>
+      </li>
+      <li class="navbar-ul-li">
+        <a class="navbar-ul-li-a" routerLink="/posts">Posts</a>
+      </li>
+      <li class="navbar-ul-li">
+        <a class="navbar-ul-li-a" routerLink="/add-post">New Post</a>
+      </li>
+      <li class="navbar-ul-li">
+        <a class="navbar-ul-li-a" routerLink="/profile-posts">My Posts</a>
+      </li>
+      <li class="navbar-ul-li">
+        <a class="navbar-ul-li-a" routerLink="/profile"
+          >{{ fullName }}'s profile</a
+        >
       </li>
       <li class="navbar-ul-li"><a (click)="logout()">Logout</a></li>
     </ul>
-    <!-- </ul> -->
   </nav>
 </header>

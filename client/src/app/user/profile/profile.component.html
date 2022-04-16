@@ -15,32 +15,38 @@
         <p>Id:</p>
         <p>{{ getId }}</p>
       </div>
-      <!-- <div class="flex">
-        <p>My Posts:</p>
-        <p>{{ GetOwnProjects }}</p>
-      </div> -->
+
       <div class="flex">
         <p>My Posts Count:</p>
         <p>{{ GetOwnProjects.length }}</p>
       </div>
-      <!-- <div class="flex">
-        <p>OtherProjects:</p>
-        <p>{{ getLikedPosts }}</p>
-      </div> -->
+
       <div class="flex">
         <p>My Likes Count:</p>
         <p>{{ getLikedPosts.length }}</p>
       </div>
-
-      <!-- <button class="green-button">Edit</button> -->
     </div>
 
     <div id="post-card">
       <h3 class="title">My Likes Collection:</h3>
+      <div *ngIf="getLikedPosts.length == 0" class="no-post-text">
+        There are no fav posts! <a routerLink="/posts">Like</a> First One!
+      </div>
       <div class="all-posts" *ngIf="getLikedPosts.length > 0">
-        <div class="card flex_item" *ngFor="let post of getLikedPosts  | paginate
-        : { itemsPerPage: 6, currentPage: page, totalItems: getLikedPosts.length}" [routerLink]="['/posts', post._id]">
-          <img [src]="post.imageUrl" alt="NISHTO"/>
+        <div
+          class="card flex_item"
+          *ngFor="
+            let post of getLikedPosts
+              | paginate
+                : {
+                    itemsPerPage: 6,
+                    currentPage: page,
+                    totalItems: getLikedPosts.length
+                  }
+          "
+          [routerLink]="['/posts', post._id]"
+        >
+          <img [src]="post.imageUrl" alt="NISHTO" />
           <div class="info">
             <h3><i class="fa-brands fa-battle-net"></i> {{ post.name }}</h3>
             <p class="program-title">by {{ post.creatorName }}</p>
@@ -49,10 +55,5 @@
       </div>
       <pagination-controls (pageChange)="page = $event"></pagination-controls>
     </div>
-
-
   </div>
-
 </div>
-
-
