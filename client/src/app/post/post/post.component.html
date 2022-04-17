@@ -1,9 +1,9 @@
 <div id="post-card">
   <h2 class="title">Posts</h2>
   <div *ngIf="!posts"><p class="loading">Loading...</p></div>
-  <section class="no-posts" *ngIf="!posts">
-    <div class="no-post-text">There are no posts! Create First One!</div>
-  </section>
+  <div *ngIf="posts?.length == 0" class="no-post-text">
+    There are no posts! <a routerLink="/add-post">Create</a> First One!
+  </div>
   <section class="all-posts" *ngIf="posts">
     <article
       *ngFor="
